@@ -2,7 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends React.Component{
+
+  constructor(){
+    super();
+    this.state={
+      proplist:[]
+    }
+  }
+  componentDidMount(){
+    //console.log("res"+this.fun())
+    this.fun();
+    //this.setState({proplist:this.fun()})
+    console.log("did mount: "+this.state.proplist)
+  }
+  fun=()=>{
+    this.setState({proplist:[1,2]},()=>{
+      console.log(this.state.proplist)
+    })
+    //return [1,2]
+  }
+  render(){
+    console.log("render")
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +42,7 @@ function App() {
       </header>
     </div>
   );
+  }
 }
 
 export default App;
